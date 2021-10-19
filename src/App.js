@@ -16,6 +16,7 @@ export default function App() {
   const [borderGradientType, setBorderGradientType] = useState('conic');
   const [borderWidth, setBorderWidth] = useState(50);
   const [roundedCorners, setRoundedCorners] = useState(true);
+  const [offset, setOffset] = useState(0);
 
   const handleChangeLightness = (e) => {
     setLightness(e.target.value);
@@ -97,17 +98,27 @@ export default function App() {
           onChange={handleChangeRoundedCorners}
         />
       </label>
+      <br />
+      <label>
+        Offset <br />
+        <NumberInput value={offset} onChange={setOffset} />
+      </label>
       <h2>Preview</h2>
       <h3>Rainbowing Individual characters</h3>
       <RainbowCharacters
         style={style}
         lightness={lightness}
         saturation={saturation}
+        offset={offset}
       >
         {text}
       </RainbowCharacters>
       <h3>Rainbowing using a background gradient</h3>
-      <RainbowBackgroundGradient saturation={saturation} lightness={lightness}>
+      <RainbowBackgroundGradient
+        saturation={saturation}
+        lightness={lightness}
+        offset={offset}
+      >
         <span style={style}>{text}</span>
       </RainbowBackgroundGradient>
       <h3>Rainbow border using border image</h3>
@@ -115,6 +126,7 @@ export default function App() {
         saturation={saturation}
         lightness={lightness}
         type={borderGradientType}
+        offset={offset}
       >
         <div
           style={{
@@ -135,6 +147,7 @@ export default function App() {
         lightness={lightness}
         borderWidth={borderWidth}
         roundedCorners={roundedCorners}
+        offset={offset}
       >
         <div
           style={{

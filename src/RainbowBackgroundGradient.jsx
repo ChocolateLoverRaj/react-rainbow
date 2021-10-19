@@ -6,11 +6,12 @@ const RainbowBackgroundGradient = ({
   saturation = 1,
   lightness = 0.5,
   children,
+  offset = 0,
 }) => {
   if (typeof children !== 'string') Children.only(children);
 
   const style = {
-    backgroundImage: getRainbowLinearGradient(saturation, lightness),
+    backgroundImage: getRainbowLinearGradient(saturation, lightness, offset),
     backgroundClip: 'text',
     webkitBackgroundClip: 'text',
     color: 'transparent',

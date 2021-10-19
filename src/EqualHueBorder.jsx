@@ -10,6 +10,7 @@ const EqualHueBorder = ({
   children,
   borderWidth,
   roundedCorners = false,
+  offset = 0,
 }) => {
   Children.only(children);
 
@@ -27,8 +28,9 @@ const EqualHueBorder = ({
     verticalBorderArea * 2 +
     // Corners
     cornerArea * 4;
+  let h = -offset * 360;
   const horizontalHues = (horizontalBorderArea / totalArea) * 360;
-  let h = -horizontalHues / 2;
+  h += -horizontalHues / 2;
   const cornerHues = (cornerArea / totalArea) * 360;
   const verticalHues = (verticalBorderArea / totalArea) * 360;
   const topGradient = `linear-gradient(to right, ${getGradientValues(

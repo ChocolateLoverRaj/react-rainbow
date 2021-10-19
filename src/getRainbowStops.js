@@ -1,6 +1,7 @@
-const getRainbowStops = (saturation, lightness) => {
+const getRainbowStops = (saturation, lightness, offset) => {
   const stops = [];
-  for (let i = 0; i <= 360; i += 60) {
+  offset *= 360;
+  for (let i = -offset; i <= 360 - offset; i += 60) {
     stops.push(`hsl(${i}, ${saturation * 100}%, ${lightness * 100}%)`);
   }
   return stops;

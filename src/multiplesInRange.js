@@ -1,4 +1,4 @@
-import { ceil } from '@programmerraj/sokk';
+import { ceil } from 'sokk';
 
 /**
  * Returns an array of all the multiples of a number that are within a range, including the start and end.

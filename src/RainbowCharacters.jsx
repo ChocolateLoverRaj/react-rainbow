@@ -5,6 +5,7 @@ const RainbowCharacters = ({
   saturation = 1,
   lightness = 0.5,
   style,
+  offset = 0,
 }) => {
   return (
     <>
@@ -13,7 +14,7 @@ const RainbowCharacters = ({
           key={`${index}: ${char}`}
           style={{
             ...style,
-            color: `hsl(${(index / children.length) * 360}, ${
+            color: `hsl(${(index / children.length - offset) * 360}, ${
               saturation * 100
             }%, ${lightness * 100}%)`,
           }}

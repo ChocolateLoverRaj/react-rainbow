@@ -9,6 +9,7 @@ const RainbowBorderImage = ({
   saturation = 1,
   lightness = 0.5,
   type = 'conic',
+  offset = 0,
 }) => {
   Children.only(children);
 
@@ -17,7 +18,12 @@ const RainbowBorderImage = ({
       {cloneElement(children, {
         style: {
           ...children.props.style,
-          borderImage: `${getRainbowGradient(type, saturation, lightness)} 1`,
+          borderImage: `${getRainbowGradient(
+            type,
+            saturation,
+            lightness,
+            offset
+          )} 1`,
           borderStyle: 'solid',
         },
       })}
